@@ -1,0 +1,2292 @@
+<!DOCTYPE html>
+<head>
+	<title>Soundcloud Hack To Berlin Contest</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="css/sc-player-minimal.css" type="text/css">
+	<script type="text/javascript" src="js/jquery-1.6.3.min.js"></script>
+	<script type="text/javascript" src="js/contest.js"></script>
+	<script type="text/javascript" src="js/modernizr.custom.js"></script>
+</head>
+<body>
+<div class="center">&nbsp;</div>
+<div class="container">
+	<!-- <div class="timer">
+		<form>
+			<input id="time" type="text" value="0" />
+			<a id="play" href="#">play</a>
+			<a id="pause" href="#">pause</a>
+			<a href="#" id="reset">reset</a>
+		</form>
+	</div> -->
+	<div id="no-transforms">
+		<p>It looks as if your browser doesn't support CSS 3D Transforms.  Unfortunately this demo needs those.  Best handled in Safari,
+		but Chrome will work as well.
+		</p>
+	</div>
+	<table id="stage">
+		<!-- Group 1 -->
+		<tr>
+			<td id="hydrogen" class="non-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">1</li>
+				    		<li class="element-name">H</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+  			<td id="helium" class="noble-gases">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">2</li>
+				    		<li class="element-name">He</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+		</tr>
+		<!-- Group 2 -->
+		<tr class="row-two">
+			<td id="lithium" class="alkalis">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">3</li>
+				    		<li class="element-name">Li</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td id="beryllium" class="alkalines">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">4</li>
+				    		<li class="element-name">Be</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+			</td>
+			<td class="metalloids">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">5</li>
+				    		<li class="element-name">B</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="non-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">6</li>
+				    		<li class="element-name">C</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="non-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">7</li>
+				    		<li class="element-name">N</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="non-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">8</li>
+				    		<li class="element-name">O</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="halogens">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">9</li>
+				    		<li class="element-name">F</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+  			<td class="noble-gases">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">10</li>
+				    		<li class="element-name">Ne</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+		</tr>
+		<!-- Group 3 -->
+		<tr class="row-three">
+			<td class="alkalis">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">11</li>
+				    		<li class="element-name">Na</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="alkalines">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">12</li>
+				    		<li class="element-name">Mg</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td id="aluminium" class="post-trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">13</li>
+				    		<li class="element-name">Al</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="metalloids">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">14</li>
+				    		<li class="element-name">Si</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="non-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">15</li>
+				    		<li class="element-name">P</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="non-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">16</li>
+				    		<li class="element-name">S</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="halogens">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">17</li>
+				    		<li class="element-name">Cl</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+  			<td class="noble-gases">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">18</li>
+				    		<li class="element-name">Ar</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+		</tr>
+		<!-- Group 4 -->
+		<tr class="row-four">
+			<td class="alkalis">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">19</li>
+				    		<li class="element-name">K</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="alkalines">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">20</li>
+				    		<li class="element-name">Ca</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">21</li>
+				    		<li class="element-name">Sc</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">22</li>
+				    		<li class="element-name">Ti</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">23</li>
+				    		<li class="element-name">V</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">24</li>
+				    		<li class="element-name">Cr</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">25</li>
+				    		<li class="element-name">Mn</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">26</li>
+				    		<li class="element-name">Fe</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">27</li>
+				    		<li class="element-name">Co</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">28</li>
+				    		<li class="element-name">Ni</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">29</li>
+				    		<li class="element-name">Cu</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">30</li>
+				    		<li class="element-name">Zn</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td id="gallium" class="post-trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">31</li>
+				    		<li class="element-name">Ga</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+			</td>
+			<td class="metalloids">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">32</li>
+				    		<li class="element-name">Ge</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="metalloids">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">33</li>
+				    		<li class="element-name">As</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="non-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">34</li>
+				    		<li class="element-name">Se</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="halogens">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">35</li>
+				    		<li class="element-name">Br</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="noble-gases">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">36</li>
+				    		<li class="element-name">Kr</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+		</tr>
+		<!-- Group 5 -->
+		<tr class="row-five">
+			<td class="alkalis">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">37</li>
+				    		<li class="element-name">Rb</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="alkalines">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">38</li>
+				    		<li class="element-name">Sr</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">39</li>
+				    		<li class="element-name">Y</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">40</li>
+				    		<li class="element-name">Zr</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">41</li>
+				    		<li class="element-name">Nb</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">42</li>
+				    		<li class="element-name">Mo</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">43</li>
+				    		<li class="element-name">Tc</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">44</li>
+				    		<li class="element-name">Ru</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">45</li>
+				    		<li class="element-name">Rh</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">46</li>
+				    		<li class="element-name">Pd</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">47</li>
+				    		<li class="element-name">Ag</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">48</li>
+				    		<li class="element-name">Cd</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="post-trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">49</li>
+				    		<li class="element-name">In</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+			</td>
+			<td class="post-trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">50</li>
+				    		<li class="element-name">Sn</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="metalloids">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">51</li>
+				    		<li class="element-name">Sb</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="metalloids">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">52</li>
+				    		<li class="element-name">Te</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="halogens">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">53</li>
+				    		<li class="element-name">I</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="noble-gases">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">54</li>
+				    		<li class="element-name">Xe</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+		</tr>
+		<!-- Group 6 -->
+		<tr class="row-six">
+			<td class="alkalis">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">55</li>
+				    		<li class="element-name">Cs</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="alkalines">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">56</li>
+				    		<li class="element-name">Ba</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">&hellip;</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">72</li>
+				    		<li class="element-name">Hf</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">73</li>
+				    		<li class="element-name">Ta</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">74</li>
+				    		<li class="element-name">W</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">75</li>
+				    		<li class="element-name">Re</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">76</li>
+				    		<li class="element-name">Os</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">77</li>
+				    		<li class="element-name">Ir</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">78</li>
+				    		<li class="element-name">Pt</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">79</li>
+				    		<li class="element-name">Au</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">80</li>
+				    		<li class="element-name">Hg</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="post-trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">81</li>
+				    		<li class="element-name">Tl</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+			</td>
+			<td class="post-trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">82</li>
+				    		<li class="element-name">Pb</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="post-trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">83</li>
+				    		<li class="element-name">Bi</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="metalloids">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">84</li>
+				    		<li class="element-name">Po</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="halogens">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">85</li>
+				    		<li class="element-name">At</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="noble-gases">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">86</li>
+				    		<li class="element-name">Rn</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+		</tr>
+		<!-- Group 7 -->
+		<tr class="row-seven">
+			<td class="alkalis">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">87</li>
+				    		<li class="element-name">Fr</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="alkalines">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">88</li>
+				    		<li class="element-name">Ra</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">&hellip;</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">104</li>
+				    		<li class="element-name">Rf</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">105</li>
+				    		<li class="element-name">Db</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">106</li>
+				    		<li class="element-name">Sg</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">107</li>
+				    		<li class="element-name">Bh</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">108</li>
+				    		<li class="element-name">Hs</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="unknown-props">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">109</li>
+				    		<li class="element-name">Mt</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="unknown-props">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">110</li>
+				    		<li class="element-name">Ds</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="unknown-props">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">111</li>
+				    		<li class="element-name">Rg</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="trans-metals">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">112</li>
+				    		<li class="element-name">Cn</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="unknown-props">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">113</li>
+				    		<li class="element-name">Uut</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+			</td>
+			<td class="unknown-props"> 
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">114</li>
+				    		<li class="element-name">Uuq</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="unknown-props">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">115</li>
+				    		<li class="element-name">Uup</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="unknown-props">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">116</li>
+				    		<li class="element-name">Uuh</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td id="ununseptium" class="unknown-props">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">117</li>
+				    		<li class="element-name">Uus</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="unknown-props">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">118</li>
+				    		<li class="element-name">Uuo</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+		</tr>
+		<!-- Group 8 -->
+		<tr class="row-eight">
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">57</li>
+				    		<li class="element-name">La</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">58</li>
+				    		<li class="element-name">Ce</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">59</li>
+				    		<li class="element-name">Pr</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">60</li>
+				    		<li class="element-name">Nd</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">61</li>
+				    		<li class="element-name">Pm</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">62</li>
+				    		<li class="element-name">Sm</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">63</li>
+				    		<li class="element-name">Eu</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">64</li>
+				    		<li class="element-name">Gd</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">65</li>
+				    		<li class="element-name">Tb</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">66</li>
+				    		<li class="element-name">Dy</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">67</li>
+				    		<li class="element-name">Ho</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">68</li>
+				    		<li class="element-name">Er</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">69</li>
+				    		<li class="element-name">Tm</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">70</li>
+				    		<li class="element-name">Yb</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="lanthanides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">71</li>
+				    		<li class="element-name">Lu</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+		</tr>
+		<!-- Group 9 -->
+		<tr class="row-nine">
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">89</li>
+				    		<li class="element-name">Ac</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">90</li>
+				    		<li class="element-name">Th</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">91</li>
+				    		<li class="element-name">Pa</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">92</li>
+				    		<li class="element-name">U</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">93</li>
+				    		<li class="element-name">Np</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">94</li>
+				    		<li class="element-name">Pu</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">95</li>
+				    		<li class="element-name">Am</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">96</li>
+				    		<li class="element-name">Cm</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">97</li>
+				    		<li class="element-name">Bk</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">98</li>
+				    		<li class="element-name">Cf</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">99</li>
+				    		<li class="element-name">Es</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">100</li>
+				    		<li class="element-name">Fm</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">101</li>
+				    		<li class="element-name">Md</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">102</li>
+				    		<li class="element-name">No</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			 	</div>
+			</td>
+			<td class="actinides">
+				<div class="cube">
+				    <figure class="front">
+				    	<ul class="element-info">
+				    		<li class="element-protons">103</li>
+				    		<li class="element-name">Lr</li>
+				    	</ul>
+				    </figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+			<td class="empty-front">
+				<div class="cube">
+				    <figure class="front"></figure>
+				    <figure class="back"></figure>
+				    <figure class="right"></figure>
+				    <figure class="left"></figure>
+				    <figure class="top"></figure>
+				    <figure class="bottom"></figure>
+			  </div>
+  			</td>
+		</tr>
+	</table>
+	<a href="http://soundcloud.com/roman-mars/99-invisible-14-periodic-table" class="sc-player">99% Invisible - 14 - Periodic Table</a>
+</div>
+<!-- mend image http://upload.wikimedia.org/wikipedia/commons/d/d4/Kramskoy_Mendeleev_01.jpg
+-->
+<!-- lasso duel 
+http://www.paintinghere.com/UploadPic/Frederic%20Remington/big/It%20was%20to%20be%20a%20lasso%20duel%20to%20the%20death.JPG
+-->
+<!-- victory!
+http://www.cinemaisdope.com/news/films/dueloftheironfist/dueloftheironfist-1a.jpg
+-->
+<div style="margin-left: -1000px; display:block; height:0px; width: 0px; background: url(img/designduality.jpg)"></div>
+<div style="margin-left: -1000px; display:block; height:0px; width: 0px; background: url(img/gaps.jpg)">
+<div style="margin-left: -1000px; display:block; height:0px; width: 0px; background: url(img/duel.jpg)">
+<div style="margin-left: -1000px; display:block; height:0px; width: 0px; background: url(img/victory.jpg)"></div>
+<div style="margin-left: -1000px; display:block; height:0px; width: 0px; background: url(img/bands.jpg)"></div>
+<!-- js includes -->
+<script type="text/javascript" src="js/soundcloud.player.api.js"></script>
+<script type="text/javascript" src="js/sc-player.js"></script>
+</body>
+</html>

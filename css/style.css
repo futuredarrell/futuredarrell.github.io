@@ -1,0 +1,160 @@
+html, body, table, .timer{
+	background: #fff;
+	font: 12px Helvetica, sans-serif;
+	width: 100%;
+	height: 100%;
+}
+.timer{
+	padding: 30px;
+	font-size: 20px;
+}
+.center{
+	float: left;
+	display:block;
+	height: 50%;
+	margin-bottom: -300px;
+}
+.container{
+	clear: both;
+	display: block;
+	margin: 0 auto;
+	width: 900px;
+	height: 450px;
+}
+table{
+	width: 900px;
+	height: 450px;
+	border-spacing: 0;
+	cell-border:0;
+	cell-margin:0;
+	padding: 40px;
+	border: 1px solid #eee;
+}
+#no-transforms{
+	font: 12px Helvetica, sans-serif;
+	text-align: center;
+	color: red;
+	display: none;
+}
+/* color coding */
+.alkalis figure{
+	background-color: #c8a8e3;
+}
+.alkalines figure{
+	background-color: #f2f0b5;
+}
+.lanthanides figure{
+	background-color: #febbc7;
+}
+.actinides figure{
+	background-color: #79d2eb;
+}
+.trans-metals figure{
+	background-color: #9ee6db;
+}
+.post-trans-metals figure{
+	background-color: #a59f97;
+}
+.metalloids figure{
+	background-color: #c0e1e7;
+}
+.non-metals figure{
+	background-color: #c6dbd6;
+}
+.halogens figure{
+	background-color: #f3bde1;
+}
+.noble-gases figure{
+	background-color: #e5e2c0;
+}
+.unknown-props figure{
+	background-color: #e5e3df;
+}
+
+.element-info{
+	margin: 0; padding: 4px 0 0 4px; 
+}
+.element-info li{
+	margin: 0;
+	padding: 0 0 2px 0;
+	list-style: none;
+}
+.element-protons{
+	font-weight: normal;
+	font-size: 10px;	
+}
+.element-name{
+	font-size: 14px;
+	font-weight: bold;
+}
+#stage{
+	-webkit-perspective: 100;
+}
+td, tr, th{
+	margin: 0;
+	padding: 0;
+	cell-spacing: 0;
+}
+td{
+	width: 50px;
+	height: 50px;
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+.cube{
+	margin: 0;
+	padding: 0;
+	width: 40px;
+	height: 40px;
+	text-align: left;
+	position: relative;
+	-webkit-transform: translate3d(0,0,-20px);
+	-webkit-transform-style: preserve-3d;
+}
+.very-slow{
+	-webkit-transition: -webkit-transform 5s;
+}
+.slow{
+	-webkit-transition: -webkit-transform 2s ease-out;
+}
+.medium{
+	-webkit-transition: -webkit-transform 1s ease-in;
+}
+.fast{
+	-webkit-transition: -webkit-transform 0.5s ease-out;
+}
+
+.cube figure{
+	width: 38px;
+	height: 38px;
+	margin: 0; padding: 0;
+	display: block;
+	position: absolute;
+	opacity: 0.5;
+	color: #222;
+	border: 1px solid #ccc;
+}
+
+.cube .front { -webkit-transform: translate3d(0,0,20px); opacity: 0.8;}
+.cube .back { -webkit-transform: rotateX(180deg) translate3d(0,0,20px);}
+.cube .right { -webkit-transform: rotateY(90deg) translate3d(0,0,20px);}
+.cube .left { -webkit-transform: rotateY(-90deg) translate3d(0,0,20px);}
+.cube .top { -webkit-transform: rotateX(90deg) translate3d(0,0,20px);}
+.cube .bottom { -webkit-transform: rotateX(-90deg) translate3d(0,0,20px);}
+
+.show-front { -webkit-transform: translate3d(0,0,-20px) rotate3d(0,0,0); }
+.show-back { -webkit-transform: translate3d(0,0,-20px) rotateX(-180deg); }
+.show-right { -webkit-transform: translate3d(0,0,-20px) rotateY(-90deg); }
+.show-left { -webkit-transform: translate3d(0,0,-20px) rotateY(90deg); }
+.show-top { -webkit-transform: translate3d(0,0,-20px) rotateX(-90deg); }
+.show-bottom { -webkit-transform: translate3d(0,0,-20px) rotateX(90deg); }
+
+.move-out { -webkit-transform: translate3d(0,0,-100px);}
+.move-out-far { -webkit-transform: translate3d(0,0,-200px);}
+/*.test-rotate {-webkit-transform: translate3d(0,0,-24px) rotate3d(0,0,0,180deg);}
+.test-shift{-webkit-transform: translate3d(0,0,50px);}*/
+
+/*.cube .empty-front {background: #eee;}*/
+.cube .back, .cube .right, .cube .left, .cube .top, .cube .bottom{background: #ccc; opacity: 0.25;}

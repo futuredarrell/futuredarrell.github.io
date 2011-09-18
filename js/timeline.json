@@ -1,0 +1,190 @@
+//timeline
+{
+	//call a column ('td:nth-child(x) .cube')
+	//call a row ('tr:nth-child(x) .cube')
+
+	'0.5' : function(){
+		resetToBack('very-slow');
+	},
+	// ... hydrogen
+	'6.5' : function(){
+		$('#hydrogen').children('.cube').removeClass().addClass('cube show-front fast');
+		$('#hydrogen .element-info').animate({'opacity': '1'}, 500)
+	},
+	// ... helium
+	'7.5' : function(){
+		$('#helium').children('.cube').removeClass().addClass('cube show-front fast');
+		$('#helium .element-info').animate({'opacity': '1'}, 500)
+	},
+	// ... lithium
+	'8.5' : function(){
+		$('#lithium').children('.cube').removeClass().addClass('cube show-front fast');
+		$('#lithium .element-info').animate({'opacity': '1'}, 500)
+	},
+	// ... beryllium
+	'9.5' : function(){
+		$('#beryllium').children('.cube').removeClass().addClass('cube show-front fast');
+		$('#beryllium .element-info').animate({'opacity': '1'}, 500)
+	},
+	// ... set back to prepare
+	'11.0' : function(){
+		resetToFront('very-slow');
+		//resetTable();
+	},
+	// ... castles with turrets look
+	'14.0' : function(){
+		hideEmpty();
+	},
+	'22.0' : function(){
+		resetElements();
+	},
+	'40.0' : function(){
+		for(var i = 0; i < 19; i++){
+			randomWave('td:nth-child(' + i + ') .cube', function(el, index){
+				$(el).removeClass().addClass('cube show-left very-slow');
+			});	
+		}
+	},
+	'54.0' : function(){
+		resetToFront('very-slow');
+	},
+	'60.0' : function(){
+		resetToBack('very-slow');
+		showEmpty();
+	},
+	//design duality
+	'65.0' : function(){
+		waveImage('berlin.jpg');
+	},
+	'75.0' : function(){
+		wave('.cube', function(el){
+			$(el).removeClass().addClass('cube show-right very-slow');
+		});
+	},
+	'80.0' : function(){
+		backWave('.cube', function(el){
+			$(el).removeClass().addClass('cube show-left very-slow');
+		});
+	},
+	'85.0' : function(){
+		wave('.cube', function(el){
+			$(el).removeClass().addClass('cube show-right very-slow');
+		});
+	},
+	'95.0' : function(){
+		backWave('.cube', function(el){
+			$(el).removeClass().addClass('cube show-left very-slow');
+		});
+	},
+	'100.0' : function(){
+		wave('.cube', function(el){
+			$(el).removeClass().addClass('cube show-right very-slow');
+		});
+	},
+	'105.0' : function(){
+		resetToBack('medium');
+	},
+	'110.0' : function(){
+		waveImage('domi.jpg');
+	},
+	'125.0' : function(){
+		resetToFront('very-slow');
+	},
+	'134.0' : function(){
+		randomWave('.cube .front', function(el){
+			$(el).css({'background' : '#000'});
+		});
+	},
+	'145.0' : function(){
+		$('.cube').removeClass().addClass('cube move-back very-slow');
+		wave('.cube', function(el,index){
+			$(el).css({'background' : 'transparent'});
+		});
+		wave('.cube .element-info', function(el,index){
+			$(el).animate({'opacity': '0'}, 500);
+		});
+	},
+	'160.0' : function(){
+		$('#gallium .element-info').animate({'opacity': '1.0'}, 500);
+		$('#gallium .cube').css({'background': 'transparent'});
+	},
+	'170.0' : function(){
+		$('#aluminium .element-info').animate({'opacity': '1.0'}, 500);
+	},
+	'180.0' : function(){
+		wave('.cube', function(el, index){
+			$(el).children('.element-info').animate({'opacity' : '0'}, 500);
+			$(el).children('.front').css({
+				"background-position-x" : colOffset(index) + 'px',
+				"background-position-y" : rowOffset(index) + 'px',
+				"background-image" : 'url(img/domi.jpg)',
+				"background-repeat" : 'no-repeat',
+				"opacity" : '0.5'
+			});
+		});
+	},
+	'220.0' : function(){
+		randomWave('.cube', function(el){
+			$(el).css({'background' : 'transparent'});
+			$(el).children('.element-info').animate({'opacity' : '1'}, 500);
+		});
+	},
+	'230' : function(){
+		//apply a smiths and rem poster as a full image, then turn left
+		wave('.cube', function(el, index){
+			$(el).children('.element-info').animate({'opacity' : '0'}, 500);
+			$(el).children('.front').css({
+				"background-position-x" : colOffset(index) + 'px',
+				"background-position-y" : rowOffset(index) + 'px',
+				"background-image" : 'url(img/berlin.jpg)',
+				"background-repeat" : 'no-repeat',
+				"background-color" : '#f00',
+				"opacity" : '0.5'
+			});
+		});
+	},
+	'237' : function(){
+		wave('.cube', function(el, index){
+			$(el).removeClass().addClass('cube show-left fast');
+		});
+	},
+	'260' : function(){
+		//show uun
+		$('#ununseptium').children('element-info').animate({'opacity' : '1'}, 500);
+		$('#ununseptium').removeClass().addClass('cube show-front fast');
+	},
+	'279' : function(){
+		randomWave('.cube', function(el){
+			$(el).children('.element-info').animate({'opacity' : '1'}, 500);
+			$(el).removeClass().addClass('cube show-front fast');
+		});
+	},
+	'320' : function(){
+		//atom smash image
+		wave('.cube', function(el, index){
+			$(el).children('.element-info').animate({'opacity' : '0'}, 500);
+			$(el).children('figure').css({
+				"background-position-x" : colOffset(index) + 'px',
+				"background-position-y" : rowOffset(index) + 'px',
+				"background-image" : 'url(img/berlin.jpg)',
+				"background-repeat" : 'no-repeat',
+				"background-color" : '#f00',
+				"opacity" : '0.5'
+			});
+		});
+	},
+	'340' : function(){
+		wave('.cube', function(el, index){
+			$(el).removeClass().addClass('cube show-front medium');
+			$(el).children('.element-info').animate({'opacity' : '0'}, 500);
+		});
+	},
+	'350' : function(){
+		randomWave('.cube', function(el){
+			$(el).css({'background' : '#000'});
+		});
+	},
+	'355' : function(){
+		//show yellow block for 99% Invisible
+	}
+};
