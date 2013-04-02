@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Remedies For Back Pain: Scaling Backbone.js at SoundCloud</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Darrell Stephenson">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/sc.css">
+		<link rel="stylesheet" href="css/theme/soundcloud.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+
+				<!-- Title Card -->
+				<section>
+					<h3>Remedies For Back Pain</h3>
+					<h1>Scaling Backbone.js at SoundCloud</h1>
+				</section>
+
+				<!-- Short Bio -->
+				<section>
+					<h3>Me</h3>
+					<p>Darrell Stephenson</p>
+					<p>Front-End Engineer - SoundCloud</p>
+					<p><a href="http://twitter.com/futuredarrell">@futuredarrell</a></p>
+				</section>
+
+				<section>
+					<h3>Quick Assumptions</h3>
+					<p>You know what Backbone.js is</p>
+					<p>Awareness of single page application patterns</p>
+				</section>
+
+				<!-- Talk Overview -->
+				<section>
+					<h3>Oh, the pain.</h3>
+					<p class="fragment">Boilerplate</p>
+					<p class="fragment">The pain of using the public API</p>
+					<!-- <p class="fragment">Syncing view state between modular views</p> -->
+					<p class="fragment">When N gets big enough to (╯°□°）╯︵ ┻━┻</p>
+					<aside class="notes">
+						first two general kind of things
+						last two are app specific
+					</aside>
+				</section>
+
+				<!-- What is it -->
+				<section>
+					<section>
+						<h3>SoundCloud current scale</h3>
+						<p class="fragment">30 million registered users and growing</p>
+						<p class="fragment">10 hours of audio are uploaded every minute</p>
+						<p class="fragment">Default production app since December, 2012</p>
+						<p class="fragment">~ 37,000 LOC. 80% of that is JS</p>
+					</section>
+					<section>
+						<img src="images/soundcloud-home.png" />
+					</section>
+					<section>
+						<img src="images/soundcloud-stream-clean.png" />
+					</section>
+					<section>
+						<img src="images/soundcloud-listen.png" />
+					</section>
+				</section>
+
+				<!-- How Its Built -->
+				<section>
+					<h3>So, like, what's your "stack" like</h3>
+					<p class="fragment"><a href="http://www.schillmania.com/projects/soundmanager2/">SoundManager2</a></p>
+					<p class="fragment"><a href="http://jquery.com">jQuery</a> / <a href="http://backbonejs.org">Backbone</a> / <a href="http://underscorejs.org">Underscore</a></p>
+					<p class="fragment"><a href="http://handlebarsjs.com">Handlebars - with plenty of helpers</a></p>
+					<p class="fragment"><a href="http://requirejs.org">Require.js</a> and <a href="https://github.com/jrburke/almond">Almond.js</a></p>
+					<p class="fragment"><a href="http://nodejs.org">Node.js - build and tooling</a></p>
+					<p class="fragment">Home grown deployment tools</p>
+				</section>
+
+				<!-- More How Its Built Info -->
+				<section>
+					<h3>More info here:</h3>
+					<p><a href="http://backstage.soundcloud.com/2012/06/building-the-next-soundcloud/">Building The Next SoundCloud</a></p>
+				</section>
+
+				<!-- The boilerplate problem -->
+				<section>
+					<section>
+						<h2>Boilerplate</h2>
+					</section>
+					<section>
+						<p>
+							<blockquote cite="http://github.com/tbranyen/backbone-boilerplate">This boilerplate is the product of much research and frustration.</blockquote>
+						</p>
+						<p class="text-center">
+							<small>60b9c27a » tbranyen 2012-01-05 <strong>initial commit</strong></small>
+							<small><a href="http://github.com/tbranyen/backbone-boilerplate">Backbone Boilerplate Readme</a></small>
+						</p>
+					</section>
+					<section>
+						<h3>What is this boilerplate?</h3>
+						<p class="fragment">Building apps on top of a single, compact library</p>
+						<p class="fragment">Workflow and environment: build tools, file creation, file watching, etc.</p>
+						<p class="fragment">Application internals: sharing model instances across views, a modular view system</p>
+					</section>
+					<section class="text-center">
+						<img src="images/oh-snap-shit-got-real.png" />
+						<aside class="notes">
+							Building a heap of UI with a library that doesnt have a lot of opinions about views.
+							The "boilerplate" is where you get to make your own opinions, suited for your app.
+						</aside>
+					</section>
+					<section class="text-center">
+						<img src="images/chill-af-cat.png" />
+					</section>
+					<section>
+						<h3>Balance: models, collections, views</h3>
+						<p class="fragment">33 Models</p>
+						<p class="fragment">48 Collections</p>
+						<p class="fragment">~200 Views</p>
+					</section>
+					<section>
+						<img src="images/soundcloud-stream-modules.png" />
+					</section>
+					<section>
+						<h3>Modular views<span class="fragment"> - they do a lot</span></h3>
+						<p class="fragment">Rendering of templates</p>
+						<p class="fragment">Mutate data before rendering</p>
+						<p class="fragment">Establish a data source</p>
+						<p class="fragment">Communicate with model</p>
+						<p class="fragment">Manage their own visual states</p>
+						<p class="fragment">Setup and teardown event listeners</p>
+						<p class="fragment">Cache template elements</p>
+						<p class="fragment">Respond to DOM / other events</p>
+						<p class="fragment">Add or remove subviews.</p>
+						<aside class="notes">
+							The design goal is really to make views totally modular
+						</aside>
+					</section>
+					<!-- <section data-state="code">
+						<pre>
+							<code class="javascript">var View,
+									  &nbsp;&nbsp;&nbsp;&nbsp;Backbone = require('lib/backbone'),
+									  &nbsp;&nbsp;&nbsp;&nbsp;Stateful = require('lib/views/mixins/stateful');
+
+									View = module.exports = Backbone.View.extend(Stateful, {
+									&nbsp;&nbsp;ModelClass: null, // eg Sound
+									&nbsp;&nbsp;requiredAttributes: null, // ['title', 'permalink']
+									&nbsp;&nbsp;observedAttributes: null, // ['private']
+									&nbsp;&nbsp;css: null, // require('foo/bar.css')
+									&nbsp;&nbsp;template: null, // require('foo/bar.tmpl')
+									&nbsp;&nbsp;elementCache: null, // { foo : '.bar' }
+									&nbsp;&nbsp;setup: $.noop, // called from private internal methods
+									&nbsp;&nbsp;dispose: $.noop, // ditto
+									&nbsp;&nbsp;getTemplateData: $.noop, // return modified template data
+									&nbsp;&nbsp;renderDecorate: $.noop, // after render
+									&nbsp;&nbsp;initialize: function (args) { ... }, // sets up model and listeners, calls setup
+									&nbsp;&nbsp;and then all the other actual logic
+									});
+							</code>
+						</pre>
+						<aside class="notes">
+							Description of all the different methods
+						</aside>
+					</section> -->
+					<section data-state="code">
+						<pre>
+							<code>{{$view "views/group-network/info" resource_id=options.resource_id}}</code>
+						</pre>
+						<aside class="notes">
+							This view doesnt do much
+							Clear example of how views compress down
+						</aside>
+					</section>
+					<section data-state="code">
+						<pre>
+							<code class="javascript">var GroupNetworkInfo,
+								&nbsp;&nbsp;&nbsp;&nbsp;Group = require('models/group'),
+								&nbsp;&nbsp;&nbsp;&nbsp;View  = require('lib/view');
+
+								GroupNetworkInfo = module.exports = View.extend({
+								  &nbsp;&nbsp;className : 'groupNetworkInfo l-fixed',
+								  &nbsp;&nbsp;css       : require('views/group-network/info.css'),
+								  &nbsp;&nbsp;template  : require('views/group-network/info.tmpl'),
+								  &nbsp;&nbsp;ModelClass: Group,
+								  &nbsp;&nbsp;requiredAttributes: ['artwork_url'],
+								  &nbsp;&nbsp;observedAttributes: ['member_count']
+								});
+							</code>
+						</pre>
+						<aside class="notes">
+							This view doesnt do much
+							Clear example of how views compress down
+						</aside>
+					</section>
+					<section>
+						<h3>View: the most important class for code growth</h3>
+						<p class="fragment">Most-used, but least built by Backbone</p>
+						<p class="fragment">Solidifies a huge amount of shared behavior</p>
+						<p class="fragment">Done properly, will save you bytes in the long run as your codebase scales</p></p>
+						<p class="fragment"><em>It will codify the biggest amount of convention in your project</em></p>
+					</section>
+					<section>
+						<h3>Rx</h3>
+						<p class="fragment">Boilerplate is building the application foundation</p>
+						<p class="fragment">Focus time and energy on getting the base view class right</p>
+					</section>
+				</section>
+
+				<!-- Using the public API -->
+				<section>
+					<section>
+						<h2>Using the public API</h2>
+					</section>
+					<section>
+						<h3>"Dogfooding"</h3>
+						<p><a href="http://en.wikipedia.org/wiki/Eating_your_own_dog_food">http://en.wikipedia.org/wiki/Eating_your_own_dog_food</a></p>
+						<p class="fragment">Using your product the same way a user would</p>
+						<aside class="notes">
+							A saying of dubious origins - television ad, 1980s microsoft
+							Essentially, you are using the product you are building as it is meant to be used
+						</aside>
+					</section>
+					<section class="text-center">
+						<img src="images/i-eat-dog-food.jpg" />
+						<p class="fragment">
+							<a href="http://engineering.twitter.com/2012/05/improving-performance-on-twittercom.html">
+								Improving performance on twitter.com
+							</a>
+						</p>
+						<aside class="notes">
+							Twitter story.
+							Unless you are a strictly API company, charging for your API that enables apps building a production full-scale app on top of it is not a reasonable use case
+						</aside>
+					</section>
+					<section>
+						<h3>Other ways to maintain high product standards</h3>
+						<p class="fragment">Metrics, etc</p>
+						<p class="fragment">Contractual agreements</p>
+						<p class="fragment">Face to face with builders, understanding your users</p>
+					</section>
+					<section>
+						<h3>Good</h3>
+						<p class="fragment">The data is there</p>
+						<p class="fragment">Concentrates common business logic</p>
+						<p class="fragment">Demands high-availability, low-latency, etc.</p>
+						<aside class="notes">
+							Of course not all bad things ...
+						</aside>
+					</section>
+					<section>
+						<h3>Bad</h3>
+						<p class="fragment">Far too generic to be performant at scale</p>
+						<p class="fragment">Inflexible because of external obligations</p>
+					</section>
+					<section data-state="code">
+						<pre>
+							<code class="json">{
+  "kind": "playlist",
+  "id": 3996139,
+  "created_at": "2013/03/07 18:05:36 +0000",
+  "user_id": 26599201,
+  "duration": 4815681,
+  "sharing": "public",
+  "tag_list": "",
+  "permalink": "under-suspicion",
+  "track_count": 20,
+  "streamable": true,
+  "downloadable": null,
+  "embeddable_by": "all",
+  "purchase_url": null,
+  "label_id": null,
+  "type": "compilation",
+  "playlist_type": "compilation",
+  "ean": "",
+  "description": "",
+  "genre": "indie rock",
+  "release": "",
+  "purchase_title": null,
+  "label_name": "",
+  "title": "Under Suspicion - a HotSpotMixtape",
+  "release_year": null,
+  "release_month": null,
+  "release_day": null,
+  "license": "all-rights-reserved",
+  "uri": "https://api.soundcloud.com/playlists/3996139",
+  "permalink_url": "http://soundcloud.com/hotspotmusic/sets/under-suspicion",
+  "artwork_url": "https://i1.sndcdn.com/artworks-000042490252-8emkrw-large.jpg?ca77017",
+  "user": {
+    "id": 26599201,
+    "kind": "user",
+    "permalink": "hotspotmusic",
+    "username": "HotSpotMusic",
+    "uri": "https://api.soundcloud.com/users/26599201",
+    "permalink_url": "http://soundcloud.com/hotspotmusic",
+    "avatar_url": "https://i1.sndcdn.com/avatars-000024919749-dqi17s-large.jpg?ca77017"
+  },
+  "tracks": [
+    {
+      "kind": "track",
+      "id": 72732920,
+      "created_at": "2012/12/27 16:26:48 +0000",
+      "user_id": 167094,
+      "duration": 336357,
+      "commentable": true,
+      "state": "finished",
+      "original_content_size": 8219405,
+      "sharing": "public",
+      "tag_list": "",
+      "permalink": "james-murphy-pulp-after-you",
+      "streamable": true,
+      "embeddable_by": "all",
+      "downloadable": false,
+      "purchase_url": null,
+      "label_id": null,
+      "purchase_title": null,
+      "genre": "",
+      "title": "James Murphy + Pulp - \"After You\"",
+      "description": "",
+      "label_name": "",
+      "release": "",
+      "track_type": "",
+      "key_signature": "",
+      "isrc": "",
+      "video_url": null,
+      "bpm": null,
+      "release_year": null,
+      "release_month": null,
+      "release_day": null,
+      "original_format": "mp3",
+      "license": "all-rights-reserved",
+      "uri": "https://api.soundcloud.com/tracks/72732920",
+      "user": {
+        "id": 167094,
+        "kind": "user",
+        "permalink": "selftitledmag",
+        "username": "selftitledmag",
+        "uri": "https://api.soundcloud.com/users/167094",
+        "permalink_url": "http://soundcloud.com/selftitledmag",
+        "avatar_url": "https://i1.sndcdn.com/avatars-000033946520-bt7ym0-large.jpg?ca77017"
+      }],
+  "likes_count": 1,
+  "reposts_count": 2,
+  "created_with": {
+    "id": 46941,
+    "kind": "app",
+    "name": "Ableton Uploader",
+    "uri": "https://api.soundcloud.com/apps/1234",
+    "permalink_url": "http://soundcloud.com/apps/permalink",
+    "external_url": "",
+    "creator": "someuser"
+  }
+}
+							</code>
+						</pre>
+					</section>
+<section data-state="code">
+						<pre>
+							<code class="json">{
+  "kind": "playlist",
+  "id": 3996139,
+  "created_at": "2013/03/07 18:05:36 +0000",
+  "user_id": 26599201,
+  "duration": 4815681,
+  "sharing": "public",
+  "permalink": "under-suspicion",
+  "track_count": 20,
+  "streamable": true,
+  "downloadable": null,
+  "title": "Under Suspicion - a HotSpotMixtape",
+  "uri": "https://api.soundcloud.com/playlists/3996139",
+  "permalink_url": "http://soundcloud.com/hotspotmusic/sets/under-suspicion",
+  "artwork_url": "https://i1.sndcdn.com/artworks-000042490252-8emkrw-large.jpg?ca77017",
+  "likes_count": 1,
+  "reposts_count": 2
+}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>When your data source isnt flexible</h3>
+						<p class="fragment">Client code gets the brunt of it</p>
+						<p class="fragment">More complexity on the client</p>
+						<p class="fragment">More expensive operations on the client</p>
+						<p class="fragment">More requests to the API</p>
+						<aside class="notes">
+							Model / Collection is a pretty tight concept
+							The data a view needs could match model / collection but API doesnt
+							Other problems: you over fetch to compose a collection or a view
+						</aside>
+					</section>
+					<section>
+						<img src="images/gold-panda.png" />
+					</section>
+					<section>
+						<img src="images/gold-panda-outlined.png" />
+					</section>
+					<section>
+						<h3>Real world data problems</h3>
+						<p class="fragment">The cleanest implementation is 1 data object / view</p>
+						<p class="fragment">Design treats items functionally as a single collection</p>
+						<p class="fragment">Server provides separate endpoints for each collection</p>
+						<p class="fragment">Complications in readiness, error handling, merging events, etc</p>
+					</section>
+					<section class="text/center">
+						<img src="images/oh-god-why.png" />
+					</section>
+					<section>
+						<h3>Time to get flexible</h3>
+					</section>
+					<section>
+						<img src="images/blue-bottle-coffee.png" />
+					</section>
+					<section>
+						<img src="images/who-to-follow.png" />
+					</section>
+					<section>
+						<img src="images/soundcloud-explore.png" />
+					</section>
+					<section>
+						<img src="images/epic-win.png" />
+					</section>
+					<section>
+						<h3>Rx</h3>
+						<p class="fragment">Using the public API doesn't work well at scale</p>
+						<p class="fragment">Use flexible services without external obligations</p>
+					</section>
+				</section>
+
+				<!-- Comments prelude -->
+				<section>
+					<section>
+						<h2>Umm yeah, comments</h2>
+					</section>
+					<section class="text-center">
+						<img src="images/comment-love.png"/>
+					</section>
+					<section class="text-center">
+						<img src="images/comment-hate.png"/>
+					</section>
+					<section class="text-center">
+						<img src="images/feels.jpg"/>
+					</section>
+				</section>
+
+				<!-- Syncing state between modular views
+				<section>
+					<section>
+						<h2>Syncing state between modular views</h2>
+					</section>
+					<section>
+						<img src="images/timed-comments-blank.png" />
+					</section>
+					<section>
+						<img src="images/timed-comments-comment.png" />
+					</section>
+					<section>
+						<h3>To think about</h3>
+						<p class="fragment">No url, no save, no validate, toJSON, etc.</p>
+						<p class="fragment">It's not a standard Model class</p>
+						<p class="fragment">Some logic is needed before mutating state</p>
+					</section>
+					<section>
+						<img src="images/timed-comment-views.png" />
+					</section>
+					<section>
+						<img src="images/timed-comments-2.png" />
+					</section>
+					<section>
+						<h3>State Machine</h3>
+						<p class="fragment">Light and added to views as a mixin</p>
+						<p class="fragment">Automatically uses the resource of the view its being mixed into</p>
+						<p class="fragment">A single instance is shared across views regardless of where it was set up first</p>
+						<p class="fragment">Responsible for a small but specific set of rules</p>
+						<p class="fragment">Calls mixed-in methods directly</p>
+						<aside class="notes">
+							Methods called directly so you can avoid a kind of event soup.
+							No need to bind any contexts because the methods are mixed in are called from an internal
+							state machine reference.
+						</aside>
+					</section>
+					<section data-state="code">
+						<pre>
+							<code class="javascript">var CommentBubble,
+							&nbsp;&nbsp;&nbsp;&nbsp;TimedCommentsMixin = require('lib/views/mixins/timed-comments'),
+														&nbsp;&nbsp;&nbsp;&nbsp;View               = require('lib/view');
+
+								CommentBubble = module.exports = View.extend(TimedCommentsMixin, {
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// bind events, setup defaults, etc.
+								&nbsp;&nbsp;onCurrentCommentChange: function () {},
+								&nbsp;&nbsp;onCurrentTimestamp: function () {},
+								&nbsp;&nbsp;onActiveTimestamp: function () {},
+								&nbsp;&nbsp;onInitialState: function () {}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h3>Rx</h3>
+						<p>Try mixing in a state machine to sync shared, non-model view state</p>
+						<aside class="notes">
+							A quick google around shows some open source alternatives
+						</aside>
+					</section>
+				</section> -->
+
+				<!-- When N gets big -->
+				<section>
+					<section>
+						<h2>When N gets big</h2>
+					</section>
+					<section class="text-center">
+						<img src="images/skrillex-1.png" />
+					</section>
+					<section class="text-center">
+						<img src="images/skrillex-2.png" />
+					</section>
+					<section>
+						<h3>Standard setup totals</h3>
+						<p class="fragment">4800 comments : 1,265 + 1,923 + 1,612</p>
+						<p class="fragment">4080 comments : Without 15% replies and offscreen</p>
+					</section>
+					<section>
+						<h3>Initial template-based approach</h3>
+						<p class="fragment">Worked fine on low counts. Displayed within a list view class</p>
+						<p class="fragment">Each list item makes 4 nodes. li > a > img + span</p>
+						<p class="fragment"><strong>16,320</strong> nodes : 4080 * 4 : <em>only 3 sounds</em></p>
+						<p class="fragment"><strong>~272,000</strong> nodes / stream : 50 sounds * (1,360 avg comments / sound * 4)</p>
+					</section>
+					<section class="text-center">
+						<img src="images/aww-snap.jpg" />
+					</section>
+					<section>
+						<h3>Limit-enforced template approach</h3>
+						<p class="fragment"><strong>40,000</strong> nodes / stream : 50 sounds * 200 comments per * 4 nodes per</p>
+					</section>
+					<section class="text-center">
+						<img src="images/aww-snap.jpg" />
+					</section>
+					<section class="text-center">
+						<h3>Back To The Canvas</h3>
+						<img src="images/back-to-the-canvas.png" />
+						<p>"Templates? Where we are going we don't need templates."</p>
+						<aside class="notes">
+							Like Marty and Doc looking at their watches - its fast
+						</aside>
+					</section>
+					<section>
+						<h3>Waveform comments canvas</h3>
+						<p class="fragment">Just <strong>1</strong> node per sound. Handles any amount of comments</p>
+						<p class="fragment">No template just a this.context reference</p>
+						<p class="fragment">Same patterns for collection events</p>
+						<p class="fragment">Preloads avatars with an array of deferred objects and draws avatars in a single loop when resolved</p>
+						<p class="fragment">Separate views sit on top to provide an interaction layer</p>
+					</section>
+					<section>
+						<h3>Going even further</h3>
+						<p class="fragment">Limit to last x comments</p>
+						<p class="fragment">Draw last x commenter avatars ...</p>
+						<p class="fragment">but draw the correct amount of lines in a repeatable way</p>
+					</section>
+					<section>
+						<img src="images/skrillex-before.png" />
+						<img src="images/skrillex-after.png" />
+					</section>
+					<section class="text-center">
+						<img src="images/i-see-what-you-did-there.jpg" />
+					</section>
+					<section>
+						<h3>Hold up, wait a minute</h3>
+						<p class="fragment">Not a magic bullet for performance</p>
+						<p class="fragment">Fits this use case really well</p>
+					</section>
+					<section>
+						<h3>Rx</h3>
+						<p class="fragment">Break out of the standard view pattern where it makes sense</p>
+						<p class="fragment">Backbone's view opinion is flexible enough to support this</p>
+					</section>
+				</section>
+
+				<!-- More trickery -->
+				<section>
+					<section>
+						<h2>More trickery</h2>
+					</section>
+					<section>
+						<img src="images/waveforms.png" />
+						<aside class="notes">
+							Explain the view setup compressed into things.
+							Array of amplitudes
+						</aside>
+					</section>
+					<section>
+						<img src="images/waveforms-uncovered.png" />
+						<aside class="notes">
+							All the same waveform
+							In fact the entire set is composed of several repeating, randomly selected waveforms
+						</aside>
+					</section>
+					<section>
+						<h3>Shh ...</h3>
+						<p class="fragment">If the view is compressed into a very small space draw a fake</p>
+						<p class="fragment">Choose from a pool of pre-selected waveforms, possibly cached on the client</p>
+						<p class="fragment">Page is much faster, nobody can tell, everybody wins</p>
+					</section>
+					<section>
+						<h3>Lesson learned</h3>
+						<p class="fragment">Illusions can go a long way</p>
+						<aside class="notes">
+							Its all about the user experience.
+							So much of our performance hacking is illusions.
+							HTML that is visible but not yet interactive, template caching, updating the interface before the server
+						</aside>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Conclusions</h2>
+					</section>
+					<section>
+						<h3>A strong modular view system is key to growing your codebase gracefully.</h3>
+					</section>
+					<section>
+						<h3>Public APIs are inflexible and can put the burden on the client. Use flexible, specific services for your production application instead.</h3>
+					</section>
+					<!-- <section>
+						<h3>State Machines mixed into views are an effective combination for syncing interaction state between modular views.</h3>
+					</section> -->
+					<section>
+						<h3>Dont' be afraid to ditch the standard view. Canvas solves certain problems extremely well.</h3>
+					</section>
+					<section>
+						<h3>Sometimes an illusion is as good as the real thing.</h3>
+					</section>
+				</section>
+
+				<section class="text-center">
+					<h1>Thanks!</h1>
+					<p>We are hiring! : Questions? <a href="http://www.twitter.com/futuredarrell">@futuredarrell</a></p>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+        	{ src: 'socket.io/socket.io.js', async: true },
+        	{ src: 'plugin/notes-server/client.js', async: true }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
