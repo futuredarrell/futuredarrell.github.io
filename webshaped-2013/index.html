@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Lessons Learned - Backbone.js at SoundCloud</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Darrell Stephenson">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/sc.css">
+    <link rel="stylesheet" href="css/theme/soundcloud.css" id="theme">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/light.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+        <!-- Title Card -->
+        <section>
+          <h4>Lessons Learned</h4>
+          <h2>Backbone.js at SoundCloud</h2>
+          <p class="text-small">Darrell Stephenson - Front-End Engineer</p>
+          <p class="text-small"><a href="http://twitter.com/futuredarrell">@futuredarrell</a></p>
+        </section>
+
+        <section>
+          <h3>Quick Assumptions</h3>
+          <p>You know what Backbone.js is</p>
+          <p>You know what a single page application is</p>
+        </section>
+
+        <!-- What is it -->
+        <section>
+          <section>
+            <h3>SoundCloud current stats</h3>
+            <p class="fragment">The platform reaches 200 million people every month</p>
+            <p class="fragment">10 hours of audio are uploaded every minute</p>
+            <p class="fragment">Single page app in production since December, 2012</p>
+            <p class="fragment">~ 37,000 LOC. 80% of that is JS</p>
+          </section>
+          <section>
+            <img src="images/soundcloud-home.png" />
+          </section>
+          <section>
+            <img src="images/soundcloud-stream-clean.png" />
+          </section>
+          <section>
+            <img src="images/soundcloud-listen.png" />
+          </section>
+        </section>
+
+        <!-- Talk Overview -->
+        <section>
+          <h3>Four Lessons</h3>
+          <p>1. App Anatomy</p>
+          <p>2. Sharing between modular views</p>
+          <p>3. Efficient data representation</p>
+          <p>4. Cheating</p>
+          <aside class="notes">
+            first two general kind of things
+            last two are app specific
+          </aside>
+        </section>
+
+        <!-- Anatomy lesson -->
+        <section>
+          <section>
+            <h4>Lesson #1</h4>
+            <h3>Application anatomy</h3>
+          </section>
+          <section>
+            <h3>An app in 5 parts</h3>
+            <p class="fragment">1. URLs route to layouts</p>
+            <p class="fragment">2. Layouts insert high level views</p>
+            <p class="fragment">3. Views can load and unload other views</p>
+            <p class="fragment">4. Views know what data they need to render</p>
+            <p class="fragment">5. Data is shared between views</p>
+          </section>
+          <section>
+            <img src="/images/soundcloud-stream-modules.png" />
+          </section>
+          <section class="text-center">
+            <h3>Views are modular when they are composable, configurable and self-contained</h3>
+          </section>
+          <section data-state="code">
+            <p class="code-header">app/views/group/info.js</p>
+            <pre>
+              <code class="javascript"
+>var GroupInfo,
+    Group = require('models/group'),
+    View  = require('lib/view');
+
+GroupInfo = module.exports = View.extend({
+  className : 'groupInfo l-fixed',
+  css       : require('views/group/info.css'),
+  template  : require('views/group/info.tmpl'),
+  ModelClass: Group,
+  requiredAttributes: ['artwork_url'],
+  observedAttributes: ['member_count'],
+  getTemplateData: function (data) {
+    // modify data for template
+    return data;
+  }
+});</code>
+            </pre>
+            <aside class="notes">
+              This view doesnt do much
+              Clear example of how views compress down
+            </aside>
+          </section>
+          <section data-state="code">
+            <p class="code-header">app/views/group/sidebar.tmpl</p>
+            <pre>
+              <code class="html"
+>&lt;div class="sc-border-dark"&gt;
+  {{$view "views/group/artwork" resource_id=options.resource_id}}
+  {{#if has_info}}
+    {{$view "views/group/info" resource_id=options.resource_id}}
+  {{/if}}
+&lt;/div&gt;</code>
+            </pre>
+            <aside class="notes">
+              This view doesnt do much
+              Clear example of how views compress down
+            </aside>
+          </section>
+          <section>
+            <h3>Balance: models, collections, views</h3>
+            <p class="fragment">33 Models</p>
+            <p class="fragment">48 Collections</p>
+            <p class="fragment">~200 Views</p>
+          </section>
+          <section>
+            <h3>Lesson Learned</h3>
+            <p class="fragment">Modular views are really powerful</p>
+            <p class="fragment">Most-used, but least built by Backbone</p>
+            <p class="fragment">Will save you bytes in the long run as your codebase scales</p>
+            <p class="fragment">Will establish the most convention in your project</p>
+          </section>
+        </section>
+
+        <!-- More How Its Built Info -->
+        <section>
+          <h3>More implementation details</h3>
+          <p><a href="http://backstage.soundcloud.com/2012/06/building-the-next-soundcloud/">Building The Next SoundCloud</a></p>
+        </section>
+
+        <!-- Syncing state between modular views -->
+        <section>
+          <section>
+            <h4>Lesson #2</h4>
+            <h2>Sharing between modular views</h2>
+          </section>
+          <section>
+            <h3>Example</h3>
+            <p>I am a view. Which views am I in?</p>
+          </section>
+          <section>
+            <h3>Approach 1 - View event bubbling</h3>
+            <p class="fragment">Communicate between views in a hierarchy</p>
+            <p class="fragment">Useful for simple messaging</p>
+            <p class="fragment">No event namespacing soup</p>
+            <p class="fragment">Works a bit like DOM events, but not attached to DOM</p>
+          </section>
+          <section data-state="code">
+            <pre>
+              <code class="javascript"
+>var GroupInfo,
+    Group = require('models/group'),
+    View  = require('lib/view');
+
+GroupInfo = module.exports = View.extend({
+  className : 'groupInfo l-fixed',
+  css       : require('views/group/info.css'),
+  template  : require('views/group/info.tmpl'),
+  ModelClass: Group,
+  bubbleEvents: {
+    'onFooEvent': 'onFooEvent'
+  },
+  onFooEvent: function (event) {
+    // respond to event
+  }
+});</code>
+            </pre>
+          </section>
+          <section>
+            <h3>What if the views are not in the same hierarchy?</h3>
+          </section>
+          <section>
+            <img src="/images/timed-comments-comment.png" />
+          </section>
+          <section>
+            <h3>What is this state?</h3>
+            <p class="fragment">No url, no save, no validate, toJSON, etc.</p>
+            <p class="fragment">It's not a standard Model class</p>
+            <p class="fragment">Some logic is needed before mutating state</p>
+          </section>
+          <section>
+            <h3>Approach 2 - State Machines</h3>
+            <p class="fragment">Light and added to views as a mixin</p>
+            <p class="fragment">Calls mixed-in methods directly</p>
+            <p class="fragment">Automatically uses the resource of the view its being mixed into</p>
+            <p class="fragment">A single instance is shared across views regardless of where it was set up first</p>
+            <p class="fragment">Responsible for a small but specific set of rules</p>
+            <aside class="notes">
+              Methods called directly so you can avoid a kind of event soup.
+              No need to bind any contexts because the methods are mixed in are called from an internal
+              state machine reference.
+            </aside>
+          </section>
+          <section>
+            <img src="/images/timed-comment-views.png" />
+          </section>
+          <section>
+            <img src="/images/timed-comments-2.png" />
+          </section>
+          <section data-state="code">
+            <pre>
+              <code class="javascript"
+>var CommentBubble,
+    TimedCommentsMixin = require('lib/views/mixins/timed-comments'),
+    View               = require('lib/view');
+
+CommentBubble = module.exports = View.extend(TimedCommentsMixin, {
+    // bind events, setup defaults, etc.
+    onCurrentCommentChange: function () {},
+    onCurrentTimestamp: function () {},
+    onActiveTimestamp: function () {},
+    onInitialState: function () {}
+});</code>
+            </pre>
+          </section>
+          <section>
+            <h3>Lesson learned</h3>
+            <p>Communication between isolated views is tricky</p>
+            <p>Want to share? Try event bubbling or state machines</p>
+          </section>
+        </section>
+
+        <!-- Efficient Data Representation -->
+        <section>
+          <section>
+            <h4>Lesson #3</h4>
+            <h2>Efficient data representation</h2>
+          </section>
+          <section>
+            <h3>"Dogfooding"</h3>
+            <p><a href="http://en.wikipedia.org/wiki/Eating_your_own_dog_food">http://en.wikipedia.org/wiki/Eating_your_own_dog_food</a></p>
+            <p class="fragment">Using your product the same way a user would</p>
+            <aside class="notes">
+              A saying of dubious origins - television ad, 1980s microsoft
+              Essentially, you are using the product you are building as it is meant to be used
+            </aside>
+          </section>
+          <section>
+            <h3>We decided to "eat our own dogfood"</h3>
+          </section>
+          <section>
+            <h3>Good (/◔ ◡ ◔)/</h3>
+            <p class="fragment">The data is there. Lets go!</p>
+            <p class="fragment">Concentrates common business logic</p>
+            <p class="fragment">If the API can support our app it can support anything!</p>
+            <aside class="notes">
+              Of course not all bad things ...
+            </aside>
+          </section>
+          <section>
+            <h3>Bad ಠ_ಠ</h3>
+            <p class="fragment">Too generic to be fast at scale</p>
+            <p class="fragment">Inflexible because of external obligations</p>
+          </section>
+          <section>
+            <h3>Example</h3>
+            <p class="fragment">Lets load a set to display in a listing</p>
+            <p class="fragment">The set also has 8 sounds in it that are in the response</p>
+            <p class="fragment">Request to //api.soundcloud.com/playlists/1234.json</p>
+            <p class="fragment">Size: uncompressed 27kb</p>
+          </section>
+          <section>
+            <h3>What if we only need the basic information?</h3>
+          </section>
+          <section>
+             <h3>Example</h3>
+             <p class="fragment">Size: 572 bytes</p>
+             <p class="fragment">Multiply x 10: <span class="fragment">270kb vs 5.7kb</span></p>
+             <p class="fragment">Multiply by millions of users</p>
+           </section>
+           <section class="text-center">
+             <h3>Change the dogfood!</h3>
+             <img src="/images/smiling-birthday-dog.jpg" />
+           </section>
+           <section class="text-center">
+            <h3>We cant.</h3>
+            <img src="/images/sad-birthday-dog.jpg" />
+           </section>
+           <section>
+            <h3>When you can't change the dog food</h3>
+            <p class="fragment">Client code gets the brunt of it</p>
+            <p class="fragment">More complexity on the client</p>
+            <p class="fragment">More expensive operations on the client</p>
+            <p class="fragment">More requests to the API</p>
+            <aside class="notes">
+              Model / Collection is a pretty tight concept
+              The data a view needs could match model / collection but API doesnt
+              Other problems: you over fetch to compose a collection or a view
+            </aside>
+          </section>
+          <section>
+            <h3>Example 2</h3>
+            <p>Waveform data</p>
+          </section>
+          <section>
+            <img src="/images/waveforms.png" />
+          </section>
+          <section>
+            <h3>Change the representation</h3>
+          </section>
+          <section data-state="code">
+            <pre>
+              <code class="json"
+>{
+  "width": 1800,
+  "height": 140,
+  "samples": [46, 62, 76, 80, 73, ...] // length === 1800
+}</code>
+            </pre>
+          </section>
+          <section>
+            <h3>Dramatic results</h3>
+            <p class="fragment">UI was tangibly more responsive</p>
+            <p class="fragment">From (╯°□°）╯︵ ┻━┻ to ~ 10 ms</p>
+          </section>
+          <section>
+            <h3>Lesson learned</h3>
+            <p class="fragment">Using the public API doesn't work well at scale</p>
+            <p class="fragment">Use flexible services without external obligations</p>
+            <p class="fragment">Serve up good food and feed your app efficiently</p>
+          </section>
+        </section>
+
+        <!-- Cheating -->
+        <section>
+          <section>
+            <h4>Lesson #4</h4>
+            <h2>Cheating</h2>
+          </section>
+          <section class="text-center">
+            <img src="/images/skrillex-1.png" />
+          </section>
+          <section class="text-center">
+            <img src="/images/skrillex-2.png" />
+          </section>
+          <section>
+            <h3>Standard setup totals</h3>
+            <p class="fragment">4800 comments : 1,265 + 1,923 + 1,612</p>
+            <p class="fragment">4080 comments : Without 15% replies and offscreen</p>
+          </section>
+          <section>
+            <h3>Initial template-based approach</h3>
+            <p class="fragment">Worked fine on low counts. Displayed within a list view class</p>
+            <p class="fragment">Each list item makes 4 nodes. li > a > img + span</p>
+            <p class="fragment"><strong>16,320</strong> nodes : 4080 * 4 : <em>only 3 sounds</em></p>
+            <p class="fragment"><strong>~272,000</strong> nodes / stream : 50 sounds * (1,360 avg comments / sound * 4)</p>
+          </section>
+          <section class="text-center">
+            <img src="/images/aww-snap.jpg" />
+          </section>
+          <section>
+            <h3>Limit-enforced template approach</h3>
+            <p class="fragment"><strong>40,000</strong> nodes / stream : 50 sounds * 200 comments per * 4 nodes per</p>
+          </section>
+          <section class="text-center">
+            <img src="/images/aww-snap.jpg" />
+          </section>
+          <section class="text-center">
+            <h3>Back To The Canvas</h3>
+            <img src="/images/back-to-the-canvas.png" />
+            <p>"Templates? Where we are going we don't need templates."</p>
+            <aside class="notes">
+              Like Marty and Doc looking at their watches - its fast
+            </aside>
+          </section>
+          <section>
+            <h3>Waveform comments canvas</h3>
+            <p class="fragment">Just <strong>1</strong> node per sound. Handles any amount of comments</p>
+            <p class="fragment">No template just a this.context reference</p>
+            <p class="fragment">Same patterns for collection events</p>
+            <p class="fragment">Preloads avatars with an array of deferred objects and draws avatars in a single loop when resolved</p>
+            <p class="fragment">Separate views sit on top to provide an interaction layer</p>
+          </section>
+          <section>
+            <h3>Going even further</h3>
+            <p class="fragment">Limit to last x comments</p>
+            <p class="fragment">Draw last x commenter avatars ...</p>
+            <p class="fragment">but draw the correct amount of lines in a repeatable way</p>
+          </section>
+          <section>
+            <img src="/images/skrillex-before.png" />
+            <img src="/images/skrillex-after.png" />
+          </section>
+          <section class="text-center">
+            <img src="/images/i-see-what-you-did-there.jpg" />
+          </section>
+          <section>
+            <h3>Hold up, wait a minute</h3>
+            <p class="fragment">Not a magic bullet for performance</p>
+            <p class="fragment">Fits this use case really well</p>
+          </section>
+          <section>
+            <h3>Example 2</h3>
+          </section>
+          <section>
+            <img src="/images/waveforms.png" />
+            <aside class="notes">
+              Explain the view setup compressed into things.
+              Array of amplitudes
+            </aside>
+          </section>
+          <section>
+            <img src="/images/waveforms-uncovered.png" />
+            <aside class="notes">
+              All the same waveform
+              In fact the entire set is composed of several repeating, randomly selected waveforms
+            </aside>
+          </section>
+          <section>
+            <h3>Shh ...</h3>
+            <p class="fragment">If the view is compressed into a very small space draw a fake</p>
+            <p class="fragment">Choose from a pool of pre-selected waveforms, possibly cached on the client</p>
+            <p class="fragment">Page is much faster, nobody can tell, everybody wins</p>
+          </section>
+          <section>
+            <h3>Lesson learned</h3>
+            <p class="fragment">Break out of the standard view pattern where it makes sense</p>
+            <p class="fragment">Backbone's view opinion is flexible enough to support this</p>
+            <p class="fragment">Hack perception when possible. It's one of the most fun things in front-end development</p>
+          </section>
+        </section>
+
+        <!-- TODO: conclusions -->
+        <section>
+          <section>
+            <h2>Conclusions</h2>
+          </section>
+          <section>
+            <h3>A modular view system is the most important tool for building out your app.</h3>
+          </section>
+          <section>
+            <h3>Event bubbling and state machines can help share data between views.</h3>
+          </section>
+          <section>
+            <h3>Use efficient data structures and services you can adjust easily.</h3>
+          </section>
+          <section>
+            <h3>Cheating is fun and illusions can be as good as the real thing.</h3>
+          </section>
+        </section>
+
+        <section class="text-center">
+          <h1>Thanks!</h1>
+          <p>We are hiring! : Questions? <a href="http://www.twitter.com/futuredarrell">@futuredarrell</a></p>
+        </section>
+
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        margin: 0.1,
+        // width: 1024,
+        // height: 768,
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'socket.io/socket.io.js', async: true },
+          { src: 'plugin/notes-server/client.js', async: true }
+          // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+          // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
